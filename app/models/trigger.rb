@@ -4,4 +4,5 @@ class Trigger < ActiveRecord::Base
   validates :tags, presence: true
   validates :json, presence: true
 
+  belongs_to :package
 end
