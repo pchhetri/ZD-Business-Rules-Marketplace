@@ -1,12 +1,7 @@
-require 'zendesk_api'
-
 class Trigger < ActiveRecord::Base
 
-validates :name, presence: true
-
-def sync
-	client.tickets.first	
-end
-
+  validates :name, presence: true
+  validates :tags, presence: true
+  validates :json, presence: true
 
 end

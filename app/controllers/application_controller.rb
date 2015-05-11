@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
     def self.instance
       @instance ||= new do |config|
 
-        config.url = "https://pchhetri.zendesk.com/api/v2"
+        config.url = "https://pchhetri1431362250.zendesk.com/api/v2"
         config.username = "pchhetri@zendesk.com/token"
-        config.password = "VucMYuFAJJ1lFRkTguArXF4IELUKRslIiYHPdf51"
+        config.password = "AfL6TBQbPs3MAs7bqFD49jcDW1Sn3LtSJQSdBWhx"
 
         config.retry = true
 
