@@ -1,1 +1,1 @@
-json.extract! @trigger, :id, :created_at, :updated_at, :name, :description, :json
+json.extract! @trigger, :id, :name, :tags, :description, :json, :package_id, :created_at, :updated_at

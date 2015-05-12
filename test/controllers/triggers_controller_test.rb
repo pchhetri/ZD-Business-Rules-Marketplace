@@ -18,7 +18,7 @@ class TriggersControllerTest < ActionController::TestCase
 
   test "should create trigger" do
     assert_difference('Trigger.count') do
-      post :create, trigger: {  }
+      post :create, trigger: { description: @trigger.description, json: @trigger.json, name: @trigger.name, package_id: @trigger.package_id, tags: @trigger.tags }
     end
 
     assert_redirected_to trigger_path(assigns(:trigger))
@@ -35,7 +35,7 @@ class TriggersControllerTest < ActionController::TestCase
   end
 
   test "should update trigger" do
-    patch :update, id: @trigger, trigger: {  }
+    patch :update, id: @trigger, trigger: { description: @trigger.description, json: @trigger.json, name: @trigger.name, package_id: @trigger.package_id, tags: @trigger.tags }
     assert_redirected_to trigger_path(assigns(:trigger))
   end
 

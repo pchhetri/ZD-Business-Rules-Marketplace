@@ -1,6 +1,5 @@
-require 'json'
 class TriggersController < ApplicationController
-  before_action :set_trigger, only: [:show, :edit, :update, :destroy, :sync]
+  before_action :set_trigger, only: [:show, :edit, :update, :destroy]
 
   # GET /triggers
   # GET /triggers.json
@@ -8,11 +7,9 @@ class TriggersController < ApplicationController
     @triggers = Trigger.all
   end
 
-
   # GET /triggers/1
   # GET /triggers/1.json
   def show
-    # @trigger = Trigger.find(params[:id])
   end
 
   # GET /triggers/new
@@ -64,27 +61,14 @@ class TriggersController < ApplicationController
     end
   end
 
-  # POST /triggers/1/sync
-  def sync
-    # value = '{"val":"test","val1":"test1","val2":"test2"}'
-    # puts JSON.parse(value)
-    jsonData = @trigger.json
-    # puts jsonData
-    # data = JSON.parse(jsonData)
-    # puts data
-
-    client.triggers.create(jsonData)
-  end
-
-
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_trigger
-    @trigger = Trigger.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_trigger
+      @trigger = Trigger.find(params[:id])
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def trigger_params
-    params[:trigger]
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def trigger_params
+      params.require(:trigger).permit(:name, :tags, :description, :json, :package_id)
+    end
 end
