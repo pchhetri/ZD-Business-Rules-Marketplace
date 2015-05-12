@@ -1,5 +1,5 @@
 class PackagesController < ApplicationController
-  before_action :set_package, only: [:show, :edit, :update, :destroy]
+  before_action :set_package, only: [:show, :edit, :update, :destroy, :sync]
 
   # GET /packages
   # GET /packages.json
@@ -61,14 +61,22 @@ class PackagesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_package
-      @package = Package.find(params[:id])
+  # POST /packages/1/sync
+  def sync
+    @package.triggers.each do |trigger|
+      jsonData = trigger.json
+      client.triggers.create(jsonData)
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def package_params
-      params.require(:package).permit(:name, :tags)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_package
+    @package = Package.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def package_params
+    params.require(:package).permit(:name, :tags)
+  end
 end
