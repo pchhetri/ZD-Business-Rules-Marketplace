@@ -8,6 +8,13 @@ $gray-medium-light: #eaeaea;
   box-sizing: border-box;
 }
 
+// Make sure new link does not get lost in the footer
+// Make sure new link does not get lost in the footer
+.new_resource {
+  padding-bottom: 40px;
+  z-index: 8;
+}
+
 /* universal */
 body {
   padding-top: 60px;
