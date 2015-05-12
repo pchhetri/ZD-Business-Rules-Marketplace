@@ -7,10 +7,12 @@
   <strong>Tags:</strong>
   <%= @package.tags %>
 </p>
-<table>
+<table class="table table-checked">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th >Name</th>
+      <th >Description</th>
+      <th>Add to Account</th>
     </tr>
   </thead>
 
@@ -19,7 +21,21 @@
       <tr>
         <td><%= trigger.name %></td>
         <td><%= trigger.description %></td>
-        <td><%= trigger.json %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <% @package.macros.each do |macro| %>
+      <tr>
+        <td><%= macro.name %></td>
+        <td><%= macro.description %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <% @package.automations.each do |automation| %>
+      <tr>
+        <td><%= automation.name %></td>
+        <td><%= automation.description %></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>

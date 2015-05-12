@@ -1,0 +1,34 @@
+<h1>Automations</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th>Description</th>
+      <!-- <th>Json</th> -->
+      <th>Package</th>
+      <th>Add to account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @automations.each do |automation| %>
+      <tr>
+        <td><%= automation.name %></td>
+        <td><%= automation.tags %></td>
+        <td><%= automation.description %></td>
+        <!-- <td><%= automation.json %></td> -->
+        <td><%= automation.package_id %></td>
+        <td><%= link_to 'Add', :action => 'sync', :id => automation.id %></td>
+        <td><%= link_to 'Edit', edit_automation_path(automation) %></td>
+        <td><%= link_to 'Destroy', automation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Automation', new_automation_path %>
