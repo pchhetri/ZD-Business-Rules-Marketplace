@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @automation.name %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @automation.tags %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @automation.description %>
+</p>
+
+<p>
+  <strong>Json:</strong>
+  <%= @automation.json %>
+</p>
+
+<p>
+  <strong>Package:</strong>
+  <%= @automation.package_id %>
+</p>
+
+<%= link_to 'Edit', edit_automation_path(@automation) %> |
+<%= link_to 'Back', automations_path %>
