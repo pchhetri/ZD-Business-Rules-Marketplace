@@ -2,20 +2,19 @@
 <html>
 <head>
   <title>NailedIt</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-    <%= render 'layouts/header' %>
+<%= render 'layouts/header' %>
 <body>
 <% if !flash[:notice].blank? %>
-    <div class="notice">
-<%= flash[:notice] %>
-</div>
+    <div class="notice alert alert-success">
+      <%= flash[:notice] %>
+    </div>
 <% end %>
 <div class="container">
   <%= yield %>
-  <%= render 'layouts/footer' %>
 </div>
 </body>
 </html>
