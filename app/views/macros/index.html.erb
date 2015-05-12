@@ -1,0 +1,34 @@
+<h1>Macros</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th>Description</th>
+      <!-- <th>Json</th> -->
+      <th>Package</th>
+      <th>Add to account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @macros.each do |macro| %>
+      <tr>
+        <td><%= macro.name %></td>
+        <td><%= macro.tags %></td>
+        <td><%= macro.description %></td>
+        <!-- <td><%= macro.json %></td> -->
+        <td><%= macro.package_id %></td>
+        <td><%= link_to 'Add', :action => 'sync', :id => macro.id %></td>
+        <td><%= link_to 'Edit', edit_macro_path(macro) %></td>
+        <td><%= link_to 'Destroy', macro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Macro', new_macro_path %>

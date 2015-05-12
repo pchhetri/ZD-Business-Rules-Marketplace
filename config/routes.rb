@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :automations
+
+  resources :macros
+
   resources :triggers
 
   resources :packages

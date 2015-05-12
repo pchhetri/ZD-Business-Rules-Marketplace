@@ -1,0 +1,37 @@
+<%= form_for(@macro) do |f| %>
+  <% if @macro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@macro.errors.count, "error") %> prohibited this macro from being saved:</h2>
+
+      <ul>
+      <% @macro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :json %><br>
+    <%= f.text_field :json %>
+  </div>
+  <div class="field">
+    <%= f.label :package_id %><br>
+    <%= f.number_field :package_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

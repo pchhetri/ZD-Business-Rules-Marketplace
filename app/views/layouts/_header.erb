@@ -3,7 +3,9 @@
     <!-- <%= link_to "Business Rule Marketplace", '/', id: "logo" %> <nav> -->
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Home", '/' %></li>
-      <li><%= link_to "Triggers", 'triggers' %></li>
+      <li><%= link_to "Triggers", :controller => 'triggers' %></li>
+      <li><%= link_to "Macros", :controller => 'macros' %></li>
+      <li><%= link_to "Automations", :controller => 'automations' %></li>
       <%= render 'layouts/credential_state' %>
     </ul>
     </nav>
