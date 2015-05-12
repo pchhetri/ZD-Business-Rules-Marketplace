@@ -9,7 +9,7 @@
       <th>Tags</th>
       <th>Description</th>
       <!-- <th>Json</th> -->
-      <th>Package</th>
+      <!-- <th>Package</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,8 +21,9 @@
         <td><%= trigger.tags %></td>
         <td><%= trigger.description %></td>
         <!-- <td><%= trigger.json %></td> -->
-        <td><%= trigger.package_id %></td>
+        <!-- <td><%= trigger.package_id %></td> -->
         <td><%= link_to 'Show', trigger %></td>
+        <td><%= link_to 'Sync', :action => 'sync', :id => trigger.id, :remote => true %></td>
         <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
         <td><%= link_to 'Destroy', trigger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
