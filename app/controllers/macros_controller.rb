@@ -67,6 +67,8 @@ class MacrosController < ApplicationController
   def sync
     jsonData = @macro.json
     client.macros.create(jsonData)
+    flash[:notice] = "Macro Created Successfully!"
+    redirect_to (:back)
   end
 
   private

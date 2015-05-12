@@ -5,10 +5,67 @@
   </h2>
 </div>
 
+<<<<<<< HEAD
 <div class="knowledge-base">
   <%= render 'category_list' %>
   <ul class="category-list">
     <% @packages.each do |package| %>
+=======
+<!-- <h1>Listing Packages</h1> -->
+
+<!-- <table> -->
+<!--   <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> -->
+
+              <div class="knowledge-base">
+                <section class="promoted-articles">
+                    <ul class="list-group">
+                        <a href="#">
+                            <li class="list-group-item selected">All</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Sales</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Support</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Information Technology</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Marketing</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Education</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">HR</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Healthcare</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Retail</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Real Estate</li>
+                        </a>
+                        <a href="#">
+                            <li class="list-group-item">Finance</li>
+                        </a>
+                    </ul>
+                </section>
+                <ul class="category-list">
+            <% @packages.each do |package| %>
+      <!-- <tr> -->
+        <!-- <td><%= package.name %></td> -->
+        <!-- <td><%= package.tags %></td> -->
+>>>>>>> prateek
         <li class="panels"><%= link_to package.name, package %></li>
     <% end %>
   </ul>

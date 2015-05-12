@@ -64,8 +64,10 @@ class TriggersController < ApplicationController
 
   # POST /triggers/1/sync
   def sync
-      jsonData = @trigger.json
-      client.triggers.create(jsonData)
+    jsonData = @trigger.json
+    client.triggers.create(jsonData)
+    flash[:notice] = "Trigger Created Successfully!"
+    redirect_to (:back)
   end
   private
   # Use callbacks to share common setup or constraints between actions.
