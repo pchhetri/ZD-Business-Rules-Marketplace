@@ -4,8 +4,10 @@
 </p>
 
 <p>
+  <% unless @package.tags.empty? %>
   <strong>Tags:</strong>
   <%= @package.tags %>
+  <% end %>
 </p>
 <table class="table table-checked">
   <thead>
