@@ -1,5 +1,7 @@
 class AutomationsController < ApplicationController
-  before_action :set_automation, only: [:show, :edit, :update, :destroy]
+  before_action :set_automation, only: [:show, :edit, :update, :destroy, :sync]
+  before_action :confirm_logged_in, only: :sync
+
 
   # GET /automations
   # GET /automations.json
@@ -61,14 +63,20 @@ class AutomationsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_automation
-      @automation = Automation.find(params[:id])
-    end
+  # POST /automations/1/sync
+  def sync
+    jsonData = @automation.json
+    client.automations.create(jsonData)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def automation_params
-      params.require(:automation).permit(:name, :tags, :description, :json, :package_id)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_automation
+    @automation = Automation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def automation_params
+    params.require(:automation).permit(:name, :tags, :description, :json, :package_id)
+  end
 end

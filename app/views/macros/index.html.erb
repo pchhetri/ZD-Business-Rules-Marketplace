@@ -23,7 +23,7 @@
         <td><%= macro.description %></td>
         <!-- <td><%= macro.json %></td> -->
         <td><%= macro.package_id %></td>
-        <td><%= link_to 'Show', macro %></td>
+        <td><%= link_to 'Add', :action => 'sync', :id => macro.id %></td>
         <td><%= link_to 'Edit', edit_macro_path(macro) %></td>
         <td><%= link_to 'Destroy', macro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

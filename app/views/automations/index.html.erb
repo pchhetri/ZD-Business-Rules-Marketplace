@@ -23,7 +23,7 @@
         <td><%= automation.description %></td>
         <!-- <td><%= automation.json %></td> -->
         <td><%= automation.package_id %></td>
-        <td><%= link_to 'Show', automation %></td>
+        <td><%= link_to 'Add', :action => 'sync', :id => automation.id %></td>
         <td><%= link_to 'Edit', edit_automation_path(automation) %></td>
         <td><%= link_to 'Destroy', automation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

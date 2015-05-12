@@ -26,6 +26,20 @@
         <td></td>
       </tr>
     <% end %>
+    <% @package.macros.each do |macro| %>
+      <tr>
+        <td><%= macro.name %></td>
+        <td><%= macro.description %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <% @package.automations.each do |automation| %>
+      <tr>
+        <td><%= automation.name %></td>
+        <td><%= automation.description %></td>
+        <td></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

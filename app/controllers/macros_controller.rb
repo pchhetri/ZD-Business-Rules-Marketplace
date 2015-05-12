@@ -1,5 +1,7 @@
 class MacrosController < ApplicationController
-  before_action :set_macro, only: [:show, :edit, :update, :destroy]
+  before_action :set_macro, only: [:show, :edit, :update, :destroy, :sync]
+  before_action :confirm_logged_in, only: :sync
+
 
   # GET /macros
   # GET /macros.json
@@ -61,14 +63,20 @@ class MacrosController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_macro
-      @macro = Macro.find(params[:id])
-    end
+  # POST /macros/1/sync
+  def sync
+    jsonData = @macro.json
+    client.macros.create(jsonData)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def macro_params
-      params.require(:macro).permit(:name, :tags, :description, :json, :package_id)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_macro
+    @macro = Macro.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def macro_params
+    params.require(:macro).permit(:name, :tags, :description, :json, :package_id)
+  end
 end
