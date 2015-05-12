@@ -67,6 +67,8 @@ class AutomationsController < ApplicationController
   def sync
     jsonData = @automation.json
     client.automations.create(jsonData)
+    flash[:notice] = "Automation Created Successfully!"
+    redirect_to (:back)
   end
 
   private
