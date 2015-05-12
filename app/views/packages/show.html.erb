@@ -9,10 +9,12 @@
   <strong>Tags:</strong>
   <%= @package.tags %>
 </p>
-<table>
+<table class="table table-checked">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th >Name</th>
+      <th >Description</th>
+      <th>Add to Account</th>
     </tr>
   </thead>
 
@@ -21,7 +23,7 @@
       <tr>
         <td><%= trigger.name %></td>
         <td><%= trigger.description %></td>
-        <td><%= trigger.json %></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
