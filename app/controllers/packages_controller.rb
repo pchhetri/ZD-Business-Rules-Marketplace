@@ -64,10 +64,9 @@ class PackagesController < ApplicationController
 
   # POST /packages/1/sync
   def sync
-    @package.triggers.each do |trigger|
-      jsonData = trigger.json
-      client.triggers.create(jsonData)
-    end
+    sync_triggers
+    sync_macros
+    sync_automations
   end
 
   private
@@ -80,4 +79,32 @@ class PackagesController < ApplicationController
   def package_params
     params.require(:package).permit(:name, :tags)
   end
+
+  def sync_triggers
+    unless @package.triggers.empty?
+      @package.triggers.each do |trigger|
+        jsonData = trigger.json
+        client.triggers.create(jsonData)
+      end
+    end
+  end
+
+  def sync_macros
+    unless @package.macros.empty?
+      @package.macros.each do |macro|
+        jsonData = macro.json
+        client.macros.create(jsonData)
+      end
+    end
+  end
+
+  def sync_automations
+    unless @package.automations.empty?
+      @package.automations.each do |automation|
+        jsonData = automation.json
+        client.automations.create(jsonData)
+      end
+    end
+  end
+
 end
