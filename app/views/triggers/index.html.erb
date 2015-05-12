@@ -1,0 +1,34 @@
+<h1>Listing Triggers</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th>Description</th>
+      <!-- <th>Json</th> -->
+      <!-- <th>Package</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @triggers.each do |trigger| %>
+      <tr>
+        <td><%= trigger.name %></td>
+        <td><%= trigger.tags %></td>
+        <td><%= trigger.description %></td>
+        <!-- <td><%= trigger.json %></td> -->
+        <!-- <td><%= trigger.package_id %></td> -->
+        <td><%= link_to 'Show', trigger %></td>
+        <td><%= link_to 'Sync', :action => 'sync', :id => trigger.id %></td>
+        <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
+        <td><%= link_to 'Destroy', trigger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trigger', new_trigger_path %>
