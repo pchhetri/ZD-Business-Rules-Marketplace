@@ -14,35 +14,39 @@
     <tr>
       <th >Name</th>
       <th >Description</th>
+      <th >Type</th>
       <th>Add to Account</th>
     </tr>
   </thead>
 
   <tbody>
     <% @package.triggers.each do |trigger| %>
-      <tr>
+      <tr class="package-trigger">
         <td><%= trigger.name %></td>
         <td><%= trigger.description %></td>
+        <td><%= trigger.class.name %></td>
         <td></td>
       </tr>
     <% end %>
     <% @package.macros.each do |macro| %>
-      <tr>
+      <tr class="package-macro">
         <td><%= macro.name %></td>
         <td><%= macro.description %></td>
+        <td><%= macro.class.name %></td>
         <td></td>
       </tr>
     <% end %>
     <% @package.automations.each do |automation| %>
-      <tr>
+      <tr class="package-automation">
         <td><%= automation.name %></td>
         <td><%= automation.description %></td>
+        <td><%= automation.class.name %></td>
         <td></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Sync', action: 'sync', id: @package.id %>
+<%= link_to 'Sync', action: 'sync', id: @package.id %> |
 <%= link_to 'Edit', edit_package_path(@package) %> |
 <%= link_to 'Back', packages_path %>
