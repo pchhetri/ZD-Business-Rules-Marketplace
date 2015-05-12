@@ -9,16 +9,11 @@ class ApplicationController < ActionController::Base
   private
 
   def client
-    FooClient.instance
   end
 
   class FooClient < ZendeskAPI::Client
-    def self.instance
       @instance ||= new do |config|
 
-        config.url = "https://pchhetri1431362250.zendesk.com/api/v2"
-        config.username = "pchhetri@zendesk.com/token"
-        config.password = "AfL6TBQbPs3MAs7bqFD49jcDW1Sn3LtSJQSdBWhx"
 
         config.retry = true
 
@@ -26,9 +21,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # def tickets(email)
-    #   search(:query => "requester:#{email}")
-    # end
   end
 
 

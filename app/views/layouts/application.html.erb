@@ -8,7 +8,11 @@
 </head>
     <%= render 'layouts/header' %>
 <body>
-
+<% if !flash[:notice].blank? %>
+    <div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
 <div class="container">
   <%= yield %>
   <%= render 'layouts/footer' %>

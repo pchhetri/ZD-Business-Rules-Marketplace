@@ -1,5 +1,6 @@
 class TriggersController < ApplicationController
   before_action :set_trigger, only: [:show, :edit, :update, :destroy, :sync]
+  before_action :confirm_logged_in, only: :sync
 
   # GET /triggers
   # GET /triggers.json
@@ -63,13 +64,8 @@ class TriggersController < ApplicationController
 
   # POST /triggers/1/sync
   def sync
-    # value = '{"val":"test","val1":"test1","val2":"test2"}'
-    # puts JSON.parse(value)
-    jsonData = @trigger.json
-    # puts jsonData
-    # data = JSON.parse(jsonData)
-    # puts data
-    client.triggers.create(jsonData)
+      jsonData = @trigger.json
+      client.triggers.create(jsonData)
   end
   private
   # Use callbacks to share common setup or constraints between actions.

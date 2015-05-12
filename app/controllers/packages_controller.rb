@@ -1,5 +1,6 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy, :sync]
+  before_action :confirm_logged_in, only: :sync
 
   # GET /packages
   # GET /packages.json

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Triggers</h1>
 
 <table class="table table-hover">
@@ -23,7 +21,7 @@
         <!-- <td><%= trigger.json %></td> -->
         <!-- <td><%= trigger.package_id %></td> -->
         <td><%= link_to 'Show', trigger %></td>
-        <td><%= link_to 'Sync', :action => 'sync', :id => trigger.id, :remote => true %></td>
+        <td><%= link_to 'Sync', :action => 'sync', :id => trigger.id %></td>
         <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
         <td><%= link_to 'Destroy', trigger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

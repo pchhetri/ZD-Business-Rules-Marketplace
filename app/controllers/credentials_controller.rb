@@ -17,29 +17,24 @@ class CredentialsController < ApplicationController
   end
 
   def attempt_login
-    if params[:username].present? && params[:password].present?
-      found_user = AdminUser.where(:username => params[:username]).first
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
-      end
-    end
-    if authorized_user
-      # mark user as logged in
-      session[:user_id] = authorized_user.id
-      session[:username] = authorized_user.username
-      flash[:notice] = "You are now logged in."
-      redirect_to(:action => 'index')
+    if params[:username].present? && params[:token].present? && params[:subdomain].present?
+      session[:subdomain] =params[:subdomain]
+      session[:username ]= params[:username]
+      session[:token] = params[:token]
+      flash[:notice] = "Thank you for entering your Zendesk Credentials!"
+      redirect_to root_url
     else
-      flash[:notice] = "Invalid username/password combination."
-      redirect_to(:action => 'login')
+      flash[:notice] = "Please fill out all of the fields"
+      redirect_to action: 'login'
     end
   end
 
   def logout
     # mark user as logged out
-    session[:user_id] = nil
+    session[:subdomain] = nil
     session[:username] = nil
-    flash[:notice] = "Logged out"
+    session[:token] = nil
+    flash[:notice] = "Credentials Cleared"
     redirect_to(:action => "login")
   end
   # GET /credentials/1/edit
