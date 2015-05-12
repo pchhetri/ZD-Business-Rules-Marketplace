@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Automations</h1>
+<h1>Automations</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Tags</th>
       <th>Description</th>
-      <th>Json</th>
+      <!-- <th>Json</th> -->
       <th>Package</th>
+      <th>Add to account</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +21,7 @@
         <td><%= automation.name %></td>
         <td><%= automation.tags %></td>
         <td><%= automation.description %></td>
-        <td><%= automation.json %></td>
+        <!-- <td><%= automation.json %></td> -->
         <td><%= automation.package_id %></td>
         <td><%= link_to 'Show', automation %></td>
         <td><%= link_to 'Edit', edit_automation_path(automation) %></td>

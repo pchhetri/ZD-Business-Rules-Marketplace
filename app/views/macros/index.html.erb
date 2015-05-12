@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Macros</h1>
+<h1>Macros</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Tags</th>
       <th>Description</th>
-      <th>Json</th>
+      <!-- <th>Json</th> -->
       <th>Package</th>
+      <th>Add to account</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +21,7 @@
         <td><%= macro.name %></td>
         <td><%= macro.tags %></td>
         <td><%= macro.description %></td>
-        <td><%= macro.json %></td>
+        <!-- <td><%= macro.json %></td> -->
         <td><%= macro.package_id %></td>
         <td><%= link_to 'Show', macro %></td>
         <td><%= link_to 'Edit', edit_macro_path(macro) %></td>
